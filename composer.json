@@ -1,5 +1,6 @@
 {
   "name": "vrkansagara/matrix",
+  "description": "This is simple package which work with matrix",
   "type": "library",
   "license": "BSD-3-Clause",
   "authors": [
