@@ -14,4 +14,9 @@ use PHPUnit\Framework\TestCase;
 
 class MatrixTest extends TestCase
 {
+    /** @test */
+    public function init()
+    {
+        $this->assertTrue(true);
+    }
 }
