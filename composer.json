@@ -10,12 +10,12 @@
     }
   ],
   "require": {
-    "php": ">=8.2",
-    "phpunit/phpunit": "10.3.x-dev"
+    "php": ">=8.2"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "4.0.x-dev",
-    "mockery/mockery": "^1.5"
+    "mockery/mockery": "^1.5",
+    "phpunit/phpunit": "^10.2"
   },
   "autoload": {
     "psr-4": {
