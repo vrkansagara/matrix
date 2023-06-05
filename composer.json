@@ -3,6 +3,13 @@
   "description": "This is simple package which work with matrix",
   "type": "library",
   "license": "BSD-3-Clause",
+  "keywords": ["matrix"],
+  "homepage": "https://vrkansagara.in",
+  "support": {
+    "email": "vrkansagara@gmail.com",
+    "issues": "https://github.com/vrkansagara/matrix/issues",
+    "source": "https://github.com/vrkansagara/matrix"
+  },
   "authors": [
     {
       "name": "Vallabh Kansagara",
@@ -13,9 +20,13 @@
     "php": ">=8.2"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "4.0.x-dev",
+    "infection/infection": "^0.27.0",
     "mockery/mockery": "^1.5",
-    "phpunit/phpunit": "^10.2"
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^10.2",
+    "roave/security-advisories": "dev-latest",
+    "sensiolabs/security-checker": "^6.0",
+    "squizlabs/php_codesniffer": "4.0.x-dev"
   },
   "autoload": {
     "psr-4": {
@@ -30,18 +41,44 @@
       "Vrkansagara\\Matrix\\": "tests/"
     }
   },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "infection/extension-installer": true
+    }
+  },
   "scripts": {
     "permission": [
       "chmod 0775 -R $(pwd)/vendor",
       "chmod +x -R $(pwd)/vendor/bin"
     ],
-    "check": [
-      "@cs-check",
-      "@test"
-    ],
     "cs-check": "./vendor/bin/phpcs -s",
     "cs-fix": "./vendor/bin/phpcbf --standard=$(pwd)/phpcs.xml",
-    "test": "./vendor/bin/phpunit --testdox --colors=always"
+    "test": [
+      "./vendor/bin/phpunit --do-not-cache-result --testdox --colors=always --log-junit ./tests/build/logs/phpunit-test-log.xml",
+      "echo 'Current head at ' && git rev-parse --verify HEAD"
+    ],
+    "security-check": [
+      "./vendor/bin/security-checker security:check"
+    ],
+    "test-coverage": "phpunit --colors=always --coverage-clover ./tests/build/logs/coverage.xml",
+    "test-mutation": [
+      "export XDEBUG_MODE=coverage && ./vendor/bin/infection --only-covered --min-msi=80 --threads=4"
+    ],
+    "test-phpstan": [
+      "./vendor/bin/phpstan analyse"
+    ],
+    "test-php-lint": [
+      "find . -type f -name '*.php' -not -path \"*/vendor/*\" -print0 | xargs -0 -n1 -P4 php -l -n | (! grep -v \"No syntax errors detected\" )"
+    ],
+    "check": [
+      "@permission",
+      "@cs-fix",
+      "@cs-check",
+      "@test"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true

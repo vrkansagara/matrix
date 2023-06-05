@@ -1,0 +1,25 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": [
+            "public",
+            "src",
+
+        ],
+        "excludes": [
+            "tests"
+        ]
+    },
+    "logs": {
+        "text": "tests/build/logs/infection/infection.log",
+        "html": "tests/build/logs/infection/infection.html",
+        "summary": "tests/build/logs/infection/summary.log",
+        "json": "tests/build/logs/infection/infection-log.json",
+        "perMutator": "per-mutator.md",
+        "github": false
+    },
+    "mutators": {
+        "@default": true
+    },
+    "testFrameworkOptions": "--filter=Unit"
+}
