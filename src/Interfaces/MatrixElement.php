@@ -2,8 +2,9 @@
 
 namespace Vrkansagara\Matrix\Interfaces;
 
-interface MatrixInterface
+interface MatrixElement
 {
+
     public function getRow(): int;
 
     public function setRow(int $row);
@@ -12,10 +13,11 @@ interface MatrixInterface
 
     public function setColumn(int $row);
 
-    public function getRules(): array;
+    public function getValue(): int;
 
-    public function setRules(array $row): void;
+    public function setValue(int $row);
 
-    public function print(array $matrix): void;
+    public function getPosition(): string;
 
+    public function setPosition(int $row, int $column);
 }

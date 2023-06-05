@@ -11,9 +11,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 
 $demo = [
-    [0, 1, 2],
-    [0, 1, 2],
-    [0, 1, 2],
+    [0, 0, 1],
+    [0, 1, 1],
+    [1, 1, 1],
 ];
 $matrix = new Matrix(3, 3, new MatrixRules());
 $matrix->print($demo);

@@ -11,8 +11,8 @@ class Matrix implements MatrixInterface
     public static string $version = '0.0.1';
 
     public function __construct(
-        protected int         $row = 0,
-        protected int         $column = 0,
+        protected int         $row = 3,
+        protected int         $column = 3,
         protected MatrixRules $rules,
     )
     {
@@ -74,7 +74,7 @@ class Matrix implements MatrixInterface
                 if (!isset($matrixArray[$rowIndex][$columnIndex])) {
                     $matrixArray[$rowIndex][$columnIndex] = "";
                 }
-                echo sprintf("%s \t", $matrixArray[$rowIndex][$columnIndex]);
+                echo sprintf("\t %s \t", $matrixArray[$rowIndex][$columnIndex]);
             }
             echo PHP_EOL;
         }
