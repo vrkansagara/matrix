@@ -2,6 +2,7 @@
 /vendor/
 phpunit.xml
 phpcs.xml
+psalm.xml
 tests/build/
 .phpunit.result.cache
 composer.phar

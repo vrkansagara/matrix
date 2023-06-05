@@ -26,7 +26,7 @@
     </rule>
 
     <!-- Paths to check -->
-    <file>public</file>
     <file>src</file>
     <file>tests</file>
+    <file>public/index.php</file>
 </ruleset>

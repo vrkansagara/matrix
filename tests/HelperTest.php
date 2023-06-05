@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 class HelperTest extends TestCase
 {
     /** @test */
-    public function init()
+    public function init(): void
     {
         $this->assertTrue(true);
     }
