@@ -3,15 +3,19 @@
 declare(strict_types=1);
 
 use Vrkansagara\Matrix\Matrix;
+use Vrkansagara\Matrix\MatrixRules;
 
 define('START_TIME', microtime(true));
 
 require __DIR__ . '/../vendor/autoload.php';
 
 
-new Matrix();
+$demo = [
+    [0, 1, 2],
+    [0, 1, 2],
+    [0, 1, 2],
+];
+$matrix = new Matrix(3, 3, new MatrixRules());
+$matrix->print($demo);
 
-echo PHP_EOL . sprintf(
-    "Script execution complete in %2.3f milliseconds",
-    floor((microtime(true) - START_TIME) * 1000)
-);
+usage();
