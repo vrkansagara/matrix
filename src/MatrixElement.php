@@ -8,9 +8,11 @@ class MatrixElement implements Interfaces\MatrixElement
         protected int $row = 0,
         protected int $column = 0,
         protected string $value = '',
-        protected array|int $position = [0, 0]
+        protected array|int $position = [0, 0],
+        protected string $direction = ''
     ) {
     }
+
 
     /**
      * @return int
@@ -76,5 +78,21 @@ class MatrixElement implements Interfaces\MatrixElement
         $this->setRow($row);
         $this->setColumn($column);
         $this->position = [$row, $column];
+    }
+
+    /**
+     * @return string
+     */
+    public function getDirection(): string
+    {
+        return $this->direction;
+    }
+
+    /**
+     * @param string $direction
+     */
+    public function setDirection(string $direction): void
+    {
+        $this->direction = $direction;
     }
 }

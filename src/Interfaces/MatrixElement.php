@@ -19,4 +19,8 @@ interface MatrixElement
     public function getPosition(): array;
 
     public function setPosition(int $row, int $column): void;
+
+    public function getDirection(): string;
+
+    public function setDirection(string $value): void;
 }
