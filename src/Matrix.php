@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Vrkansagara\Matrix;
 
+use Vrkansagara\Matrix\Interfaces\MatrixElement;
 use Vrkansagara\Matrix\Interfaces\MatrixInterface;
 
 class Matrix implements MatrixInterface
@@ -11,11 +12,10 @@ class Matrix implements MatrixInterface
     public static string $version = '0.0.1';
 
     public function __construct(
-        protected int         $row = 3,
-        protected int         $column = 3,
+        protected int $row = 3,
+        protected int $column = 3,
         protected MatrixRules $rules,
-    )
-    {
+    ) {
     }
 
 
@@ -69,15 +69,23 @@ class Matrix implements MatrixInterface
 
     public function print(array $matrixArray = []): void
     {
+        $matrixObjects = [];
         for ($rowIndex = 0; $rowIndex < $this->getRow(); $rowIndex++) {
             for ($columnIndex = 0; $columnIndex < $this->getColumn(); $columnIndex++) {
-                if (!isset($matrixArray[$rowIndex][$columnIndex])) {
-                    $matrixArray[$rowIndex][$columnIndex] = "";
+                if (
+                    isset($matrixArray[$rowIndex][$columnIndex])
+                    && ! isset($matrixArray[$rowIndex][$columnIndex]) instanceof MatrixElement
+                ) {
+                    $element = new \Vrkansagara\Matrix\MatrixElement();
+                    $element->setRow($rowIndex);
+                    $element->setColumn($columnIndex);
+                    $element->setValue('');
+                    $matrixObjects[$rowIndex][$columnIndex] = $element;
                 }
+
                 echo sprintf("\t %s \t", $matrixArray[$rowIndex][$columnIndex]);
             }
             echo PHP_EOL;
         }
     }
-
 }

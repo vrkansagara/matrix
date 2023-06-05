@@ -17,5 +17,4 @@ interface MatrixInterface
     public function setRules(array $row): void;
 
     public function print(array $matrix): void;
-
 }

@@ -4,5 +4,4 @@ namespace Vrkansagara\Matrix\Interfaces;
 
 interface MatrixRuleInterface
 {
-
 }

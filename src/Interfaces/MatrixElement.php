@@ -4,7 +4,6 @@ namespace Vrkansagara\Matrix\Interfaces;
 
 interface MatrixElement
 {
-
     public function getRow(): int;
 
     public function setRow(int $row);
@@ -13,11 +12,11 @@ interface MatrixElement
 
     public function setColumn(int $row);
 
-    public function getValue(): int;
+    public function getValue(): string;
 
-    public function setValue(int $row);
+    public function setValue(string $row);
 
-    public function getPosition(): string;
+    public function getPosition(): array;
 
-    public function setPosition(int $row, int $column);
+    public function setPosition(int $row, int $column): void;
 }

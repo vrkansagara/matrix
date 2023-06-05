@@ -6,5 +6,4 @@ use Vrkansagara\Matrix\Interfaces\MatrixRuleInterface;
 
 class MatrixRules implements MatrixRuleInterface
 {
-
 }
