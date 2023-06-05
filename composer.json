@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "php": ">=8.2"
+    "php": ">=8.2",
+    "symfony/console": "^6.3"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "4.0.x-dev",
@@ -44,5 +45,10 @@
     "test": "./vendor/bin/phpunit --testdox --colors=always"
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "infection/extension-installer": true
+    }
+  }
 }

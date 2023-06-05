@@ -16,6 +16,8 @@ if [ ! -f "$(pwd)/composer.phar" ]; then
     rm composer-setup.php
 fi
 
+chmod +x $(pwd)/bin/*
+
 php composer.phar  update
 php composer.phar  dumpautoload -o
 php composer.phar  run permission

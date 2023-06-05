@@ -8,6 +8,7 @@ define('START_TIME', microtime(true));
 
 require __DIR__ . '/../vendor/autoload.php';
 
+
 new Matrix();
 
 echo PHP_EOL . sprintf(
