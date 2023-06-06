@@ -33,10 +33,10 @@ jobs:
             ${{ runner.os }}-php-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --ignore-platform-req=php
+        run: composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --optimize-autoloader --prefer-dist --ignore-platform-req=php
 
       - name: Copy phpunit and phpcs files
-        run: cp phpcs.xml.dist phpcs.xml && cp phpunit.xml.dist phpunit.xml
+        run: cp phpcs.xml.dist phpcs.xml && cp phpunit.xml.dist phpunit.xml && cp psalm.xml.dist psalm.xml
 
       - name: Run ch-check
         run: composer run-script cs-check
